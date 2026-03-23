@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-logo">
+        <h1>⚓ ANCHOR</h1>
+        <p>A safe space for ALU students</p>
+    </div>
+
+    <div class="card">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('login')">Login</div>
+            <div class="tab" onclick="showTab('register')">Register</div>
+        </div>
+
+        <div id="message"></div>
+
+        <!-- Login Form -->
+        <div id="login-form">
+            <div class="form-group">
+                <label>ALU Email</label>
+                <input type="email" id="login-email" placeholder="you@alustudent.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="login-password" placeholder="Your password">
+            </div>
+            <button class="btn btn-primary" onclick="login()">Login</button>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" style="display:none;">
+            <div class="form-group">
+                <label>ALU Email</label>
+                <input type="email" id="reg-email" placeholder="you@alustudent.com">
+            </div>
+            <div class="form-group">
+                <label>Display Name</label>
+                <input type="text" id="reg-name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="reg-password" placeholder="Choose a password">
+            </div>
+            <div class="form-group">
+                <label>Academic Year</label>
+                <select id="reg-year">
+                    <option value="1">Year 1</option>
+                    <option value="2">Year 2</option>
+                    <option value="3">Year 3</option>
+                    <option value="4">Year 4</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="register()">Create Account</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

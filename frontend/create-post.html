@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — New Post</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="feed.html" class="navbar-brand">
+        <span class="anchor-icon">⚓</span>
+        <h1>ANCHOR</h1>
+    </a>
+    <div class="navbar-links">
+        <a href="feed.html">Feed</a>
+        <a href="resources.html">Resources</a>
+        <a href="create-post.html" class="btn-nav-post active">+ New Post</a>
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="page-title">Share your experience</h1>
+    <p class="page-subtitle">This is a safe space. You can post anonymously and no one will know it's you.</p>
+
+    <div class="card">
+        <div id="message"></div>
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="title" placeholder="Give your post a short title">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select id="category">
+                <option value="academics">Academics</option>
+                <option value="relationships">Relationships</option>
+                <option value="career">Career</option>
+                <option value="wellness">Wellness</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Your story or question</label>
+            <textarea id="body" rows="6" 
+                placeholder="Share what's on your mind..."></textarea>
+        </div>
+        <div class="form-group">
+            <div class="checkbox-row">
+                <input type="checkbox" id="is_anonymous" checked>
+                <label for="is_anonymous">Post anonymously 🎭</label>
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="createPost()">Post</button>
+        <a href="feed.html" class="cancel-link">Cancel</a>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/create-post.js"></script>
+</body>
+</html>

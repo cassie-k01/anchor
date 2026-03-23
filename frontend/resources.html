@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — Resources</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="feed.html" class="navbar-brand">
+        <span class="anchor-icon">⚓</span>
+        <h1>ANCHOR</h1>
+    </a>
+    <div class="navbar-links">
+        <a href="feed.html">Feed</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="create-post.html" class="btn-nav-post">+ New Post</a>
+        <a href="#" id="admin-link" class="hidden">Admin</a>
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="page-title">Resources</h1>
+    <p class="page-subtitle">Helpful tips and links shared by senior students</p>
+
+    <!-- Add resource form — only visible to mentors/admins -->
+    <div id="add-resource-form" class="hidden">
+        <div class="card" style="margin-bottom:24px;">
+            <h3 class="form-section-title">Share a Resource</h3>
+            <div id="resource-message"></div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="res-title" placeholder="e.g. Managing Exam Stress">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="res-description" rows="3" 
+                    placeholder="Briefly describe what this resource is about..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Link (optional)</label>
+                <input type="url" id="res-url" placeholder="https://...">
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="res-category">
+                    <option value="academics">Academics</option>
+                    <option value="relationships">Relationships</option>
+                    <option value="career">Career</option>
+                    <option value="wellness">Wellness</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="addResource()">Share Resource</button>
+        </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="setFilter(this, null)">All</button>
+        <button class="filter-btn" onclick="setFilter(this, 'academics')">Academics</button>
+        <button class="filter-btn" onclick="setFilter(this, 'relationships')">Relationships</button>
+        <button class="filter-btn" onclick="setFilter(this, 'career')">Career</button>
+        <button class="filter-btn" onclick="setFilter(this, 'wellness')">Wellness</button>
+        <button class="filter-btn" onclick="setFilter(this, 'other')">Other</button>
+    </div>
+
+    <!-- Resources list -->
+    <div id="resources-container">
+        <div class="empty-state">
+            <div class="empty-icon">📚</div>
+            <p>Loading resources...</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/resources.js"></script>
+</body>
+</html>

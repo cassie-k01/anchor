@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — Feed</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="feed.html" class="navbar-brand">
+        <span class="anchor-icon">⚓</span>
+        <h1>ANCHOR</h1>
+    </a>
+    <div class="navbar-links">
+        <a href="feed.html" class="active">Feed</a>
+        <a href="resources.html">Resources</a>
+        <a href="create-post.html" class="btn-nav-post">+ New Post</a>
+        <a href="#" id="admin-link" class="hidden">Admin</a>
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="welcome-banner">
+        <span class="anchor-sm">⚓</span>
+        <p id="welcome-msg"></p>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="setFilter(this, null)">All</button>
+        <button class="filter-btn" onclick="setFilter(this, 'academics')">Academics</button>
+        <button class="filter-btn" onclick="setFilter(this, 'relationships')">Relationships</button>
+        <button class="filter-btn" onclick="setFilter(this, 'career')">Career</button>
+        <button class="filter-btn" onclick="setFilter(this, 'wellness')">Wellness</button>
+        <button class="filter-btn" onclick="setFilter(this, 'other')">Other</button>
+    </div>
+
+    <div id="posts-container">
+        <div class="empty-state">
+            <div class="empty-icon">💬</div>
+            <p>Loading posts...</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/feed.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="feed.html" class="navbar-brand">
+        <span class="anchor-icon">⚓</span>
+        <h1>ANCHOR</h1>
+    </a>
+    <div class="navbar-links">
+        <a href="feed.html">Feed</a>
+        <a href="resources.html">Resources</a>
+        <a href="admin.html" class="active">Admin</a>
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="page-title">Moderation Dashboard</h1>
+    <p class="page-subtitle">Review and manage reported content</p>
+
+    <div class="stats-row">
+        <div class="card stat-card">
+            <div class="stat-number navy" id="pending-count">—</div>
+            <div class="stat-label">Pending Reports</div>
+        </div>
+        <div class="card stat-card">
+            <div class="stat-number green" id="resolved-count">—</div>
+            <div class="stat-label">Resolved</div>
+        </div>
+        <div class="card stat-card">
+            <div class="stat-number blue" id="reviewed-count">—</div>
+            <div class="stat-label">Reviewed</div>
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="setFilter(this, 'pending')">Pending</button>
+        <button class="filter-btn" onclick="setFilter(this, 'reviewed')">Reviewed</button>
+        <button class="filter-btn" onclick="setFilter(this, 'resolved')">Resolved</button>
+    </div>
+
+    <div id="message"></div>
+    <div id="reports-container">
+        <div class="empty-state">
+            <div class="empty-icon">⏳</div>
+            <p>Loading reports...</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

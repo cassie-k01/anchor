@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANCHOR — Post</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="feed.html" class="navbar-brand">
+        <span class="anchor-icon">⚓</span>
+        <h1>ANCHOR</h1>
+    </a>
+    <div class="navbar-links">
+        <a href="feed.html">Feed</a>
+        <a href="resources.html">Resources</a>
+        <a href="create-post.html" class="btn-nav-post">+ New Post</a>
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div id="post-container">
+        <div class="empty-state">
+            <div class="empty-icon">⏳</div>
+            <p>Loading post...</p>
+        </div>
+    </div>
+
+    <div id="comments-section" class="hidden">
+        <h3 class="comments-header">Responses & Advice</h3>
+
+        <div class="card comment-form">
+            <div id="comment-message"></div>
+            <div class="form-group">
+                <textarea id="comment-body" rows="3" 
+                    placeholder="Share your advice or perspective..."></textarea>
+            </div>
+            <div class="comment-form-footer">
+                <div class="checkbox-row">
+                    <input type="checkbox" id="comment-anonymous" checked>
+                    <label for="comment-anonymous">Reply anonymously 🎭</label>
+                </div>
+                <button class="btn btn-secondary" onclick="addComment()">Reply</button>
+            </div>
+        </div>
+
+        <div id="comments-container"></div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/post.js"></script>
+</body>
+</html>
