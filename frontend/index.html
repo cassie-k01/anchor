@@ -1,69 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANCHOR — Login</title>
+    <title>ANCHOR — A Safe Space for ALU Students</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="auth-container">
-    <div class="auth-logo">
-        <h1>⚓ ANCHOR</h1>
-        <p>A safe space for ALU students</p>
-    </div>
+<div class="auth-page">
 
-    <div class="card">
-        <div class="tabs">
-            <div class="tab active" onclick="showTab('login')">Login</div>
-            <div class="tab" onclick="showTab('register')">Register</div>
+    <!-- Left panel -->
+    <div class="auth-left">
+        <div class="auth-left-logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM12 6C13.1 6 14 6.9 14 8C14 9.1 13.1 10 12 10C10.9 10 10 9.1 10 8C10 6.9 10.9 6 12 6ZM16 14H8C8 12.35 9.79 11 12 11C14.21 11 16 12.35 16 14Z"/>
+                </svg>
+            </div>
+            <span>ANCHOR</span>
         </div>
 
-        <div id="message"></div>
+        <div class="auth-left-content">
+            <h2>A safe space to share, <em>heal</em> and grow together.</h2>
+            <p>University life comes with challenges no one should face alone. ANCHOR connects ALU students through shared experiences and anonymous peer support.</p>
 
-        <!-- Login Form -->
-        <div id="login-form">
-            <div class="form-group">
-                <label>ALU Email</label>
-                <input type="email" id="login-email" placeholder="you@alustudent.com">
+            <div class="auth-features">
+                <div class="auth-feature">
+                    <div class="auth-feature-dot"></div>
+                    <span>Post anonymously — your identity stays protected</span>
+                </div>
+                <div class="auth-feature">
+                    <div class="auth-feature-dot"></div>
+                    <span>Get advice from students who've been there</span>
+                </div>
+                <div class="auth-feature">
+                    <div class="auth-feature-dot"></div>
+                    <span>Browse resources curated by senior students</span>
+                </div>
+                <div class="auth-feature">
+                    <div class="auth-feature-dot"></div>
+                    <span>Safe, moderated community for ALU students only</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="login-password" placeholder="Your password">
-            </div>
-            <button class="btn btn-primary" onclick="login()">Login</button>
-        </div>
-
-        <!-- Register Form -->
-        <div id="register-form" style="display:none;">
-            <div class="form-group">
-                <label>ALU Email</label>
-                <input type="email" id="reg-email" placeholder="you@alustudent.com">
-            </div>
-            <div class="form-group">
-                <label>Display Name</label>
-                <input type="text" id="reg-name" placeholder="Your name">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="reg-password" placeholder="Choose a password">
-            </div>
-            <div class="form-group">
-                <label>Academic Year</label>
-                <select id="reg-year">
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                </select>
-            </div>
-            <button class="btn btn-primary" onclick="register()">Create Account</button>
         </div>
     </div>
+
+    <!-- Right panel -->
+    <div class="auth-right">
+        <div class="auth-form-container fade-up">
+
+            <h3 id="form-title">Welcome back</h3>
+            <p class="auth-subtitle" id="form-subtitle">Sign in to your ANCHOR account</p>
+
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('login')">Sign In</div>
+                <div class="tab" onclick="showTab('register')">Register</div>
+            </div>
+
+            <div id="message"></div>
+
+            <!-- Login Form -->
+            <div id="login-form">
+                <div class="form-group">
+                    <label>ALU Email</label>
+                    <input type="email" id="login-email" placeholder="you@alustudent.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="Your password">
+                </div>
+                <button class="btn btn-primary" onclick="login()">Sign In</button>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="hidden">
+                <div class="form-group">
+                    <label>ALU Email</label>
+                    <input type="email" id="reg-email" placeholder="you@alustudent.com">
+                </div>
+                <div class="form-group">
+                    <label>Display Name</label>
+                    <input type="text" id="reg-name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="reg-password" placeholder="Choose a password">
+                </div>
+                <div class="form-group">
+                    <label>Academic Year</label>
+                    <select id="reg-year">
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="register()">Create Account</button>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
 <script src="js/api.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/navbar.js"></script>
 </body>
 </html>

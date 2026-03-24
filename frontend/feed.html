@@ -10,15 +10,38 @@
 
 <div class="navbar">
     <a href="feed.html" class="navbar-brand">
-        <span class="anchor-icon">⚓</span>
+        <div class="navbar-logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM12 6C13.1 6 14 6.9 14 8C14 9.1 13.1 10 12 10C10.9 10 10 9.1 10 8C10 6.9 10.9 6 12 6ZM16 14H8C8 12.35 9.79 11 12 11C14.21 11 16 12.35 16 14Z"/>
+            </svg>
+        </div>
         <h1>ANCHOR</h1>
     </a>
     <div class="navbar-links">
-        <a href="feed.html" class="active">Feed</a>
+        <a href="feed.html">Feed</a>
         <a href="resources.html">Resources</a>
         <a href="create-post.html" class="btn-nav-post">+ New Post</a>
         <a href="#" id="admin-link" class="hidden">Admin</a>
         <a href="#" class="logout-link" onclick="logout()">Logout</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></button>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="feed.html">Feed</a>
+    <a href="resources.html">Resources</a>
+    <a href="create-post.html">+ New Post</a>
+    <a href="#" id="admin-link-mobile" class="hidden">Admin</a>
+    <a href="#" onclick="logout()">Logout</a>
+    <div class="theme-row">
+        Dark Mode
+        <button class="theme-toggle" onclick="toggleTheme()"></button>
     </div>
 </div>
 
@@ -47,5 +70,6 @@
 
 <script src="js/api.js"></script>
 <script src="js/feed.js"></script>
+<script src="js/navbar.js"></script>
 </body>
 </html>
