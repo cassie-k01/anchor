@@ -1,4 +1,4 @@
-# ⚓ ANCHOR
+# ANCHOR
 ### Anonymous Peer Support Platform for ALU Students
 
 ANCHOR is a web-based platform that allows African Leadership University students to anonymously share experiences, seek advice, and support each other. It addresses the stigma around mental health and academic struggles by providing a safe, peer-driven space.
