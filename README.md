@@ -3,6 +3,8 @@
 
 ANCHOR is a web-based platform that allows African Leadership University students to anonymously share experiences, seek advice, and support each other. It addresses the stigma around mental health and academic struggles by providing a safe, peer-driven space.
 
+> 🌐 **Live:** https://anchor-qgu7.onrender.com
+
 ---
 
 ## Tech Stack
@@ -72,10 +74,19 @@ The server will start at **http://localhost:5000**
 ### 5. Open the app
 Go to your browser and open:
 ```
-http://localhost:5000/frontend/index.html
+http://localhost:5000
 ```
 
 ---
+
+## Deployment (Render)
+
+The app is deployed on Render as a Web Service.
+
+- **Start command:** `gunicorn run:app`
+- **Environment:** Python 3
+- **Note:** SQLite resets on every redeploy on Render's free tier. 
+
 
 ## Using the App
 
@@ -95,11 +106,7 @@ http://localhost:5000/frontend/index.html
 - Suspend users who violate community guidelines
 
 ### Creating a Moderator Account
-Register a normal account first, then run this command to upgrade it:
-```bash
-python -c "from app import create_app, db; from app.models.user import User; app = create_app(); app.app_context().push(); user = User.query.filter_by(email='your@email.com').first(); user.role = 'moderator'; db.session.commit(); print('Done!')"
-```
-
+Register using an `@alustaff.com` email address — moderator access is granted automatically.
 ---
 
 ## API Endpoints
