@@ -105,10 +105,9 @@ The app is deployed on Render as a Web Service.
 - Remove harmful posts or comments
 - Suspend users who violate community guidelines
 
-### Creating a Moderator Account
-
-Register using an `@alustaff.com` email address — moderator access is granted automatically.
----
+## User Roles
+- Register with `@alustudent.com` → Student account
+- Register with `@alustaff.com` → Moderator account (access to admin dashboard)
 
 ## API Endpoints
 
