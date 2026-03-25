@@ -106,6 +106,7 @@ The app is deployed on Render as a Web Service.
 - Suspend users who violate community guidelines
 
 ### Creating a Moderator Account
+
 Register using an `@alustaff.com` email address — moderator access is granted automatically.
 ---
 
