@@ -30,11 +30,17 @@ def register():
     password_hash = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
 
     # Create the user and save to database
+    
+    # ALU staff emails automatically get moderator role
+    role = "moderator" if email.endswith("@alustaff.com") else "student"
+
+    # Create the user and save to database
     user = User(
         email         = email,
         password_hash = password_hash,
         display_name  = data["display_name"],
         academic_year = int(data["academic_year"]),
+        role          = role,
     )
     db.session.add(user)
     db.session.commit()
