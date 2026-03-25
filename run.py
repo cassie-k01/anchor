@@ -6,6 +6,10 @@ app = create_app()
 
 frontend_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frontend")
 
+@app.route("/")
+def index():
+    return send_from_directory(frontend_folder, "index.html")
+
 @app.route("/frontend/<path:filename>")
 def frontend(filename):
     return send_from_directory(frontend_folder, filename)

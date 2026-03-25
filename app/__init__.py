@@ -46,8 +46,4 @@ def create_app():
     app.register_blueprint(admin_bp,     url_prefix="/api/admin")
     app.register_blueprint(resources_bp,   url_prefix="/api/resources")
 
-    @app.route("/")
-    def home():
-        return {"message": "ANCHOR API is running 🎉"}
-
     return app
