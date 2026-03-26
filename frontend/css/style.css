@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
+/* Prevent theme flash on load */
+html {
+    visibility: hidden;
+}
+
+html.ready {
+    visibility: visible;
+}
+
 /* ── Variables ─────────────────────────────────────────── */
 :root {
   /* Light mode */
