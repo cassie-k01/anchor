@@ -35,6 +35,3 @@ function initHamburger() {
 // Run on page load
 initTheme();
 document.addEventListener("DOMContentLoaded", initHamburger);
-
-// Prevent flash of unstyled content
-document.documentElement.classList.add("ready");
