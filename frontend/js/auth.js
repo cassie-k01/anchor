@@ -1,5 +1,5 @@
 // Redirect if already logged in
-if (isLoggedIn()) window.location.href = "feed.html";
+if (isLoggedIn()) window.location.href = "/frontend/feed.html";
 
 function showTab(tab) {
     const isLogin = tab === "login";
@@ -31,7 +31,7 @@ async function login() {
     if (ok) {
         saveToken(data.token);
         saveUser(data.user);
-        window.location.href = "feed.html";
+        window.location.href = "/frontend/feed.html";
     } else {
         showMessage(data.error, "error");
     }

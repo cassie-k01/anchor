@@ -1,4 +1,4 @@
-if (!isLoggedIn()) window.location.href = "index.html";
+if (!isLoggedIn()) window.location.href = "/frontend/index.html";
 
 const user = getUser();
 if (user) {
@@ -8,7 +8,7 @@ if (user) {
 // Show admin link only for moderators and admins
 if (user && (user.role === "moderator" || user.role === "admin")) {
     const adminLink = document.getElementById("admin-link");
-    adminLink.href = "admin.html";
+    adminLink.href = "/frontend/admin.html";
     adminLink.classList.remove("hidden");
 }
 function setFilter(btn, category) {
@@ -37,7 +37,7 @@ async function loadPosts(category = null) {
     }
 
     container.innerHTML = data.posts.map(post => `
-        <div class="post-card" onclick="window.location.href='post.html?id=${post.id}'">
+        <div class="post-card" onclick="window.location.href='/frontend/post.html?id=${post.id}'">
             <div class="post-card-header">
                 <span class="category-badge">${post.category}</span>
                 <span class="anon-badge">${post.is_anonymous ? '🎭 ' + post.author : '👤 ' + post.author}</span>
@@ -55,7 +55,7 @@ async function loadPosts(category = null) {
 
 function logout() {
     removeToken();
-    window.location.href = "index.html";
+    window.location.href = "/frontend/index.html";
 }
 
 loadPosts();

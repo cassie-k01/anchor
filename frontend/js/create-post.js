@@ -1,4 +1,4 @@
-if (!isLoggedIn()) window.location.href = "index.html";
+if (!isLoggedIn()) window.location.href = "/frontend/index.html";
 
 function showMessage(text, type) {
     document.getElementById("message").innerHTML = `<div class="${type}">${text}</div>`;
@@ -16,7 +16,7 @@ async function createPost() {
 
     if (ok) {
         showMessage("Post created successfully!", "success");
-        setTimeout(() => window.location.href = "feed.html", 1500);
+        setTimeout(() => window.location.href = "/frontend/feed.html", 1500);
     } else {
         showMessage(data.error, "error");
     }
@@ -24,5 +24,5 @@ async function createPost() {
 
 function logout() {
     removeToken();
-    window.location.href = "index.html";
+    window.location.href = "/frontend/index.html";
 }

@@ -1,11 +1,11 @@
-if (!isLoggedIn()) window.location.href = "index.html";
+if (!isLoggedIn()) window.location.href = "/frontend/index.html";
 
 const user = getUser();
 
 // Show admin link for moderators/admins
 if (user && (user.role === "moderator" || user.role === "admin")) {
     const adminLink = document.getElementById("admin-link");
-    adminLink.href = "admin.html";
+    adminLink.href = "/frontend/admin.html";
     adminLink.classList.remove("hidden");
 }
 
@@ -106,7 +106,7 @@ function showResourceMessage(text, type) {
 
 function logout() {
     removeToken();
-    window.location.href = "index.html";
+    window.location.href = "/frontend/index.html";
 }
 
 loadResources();

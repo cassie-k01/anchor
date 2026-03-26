@@ -1,9 +1,9 @@
-if (!isLoggedIn()) window.location.href = "index.html";
+if (!isLoggedIn()) window.location.href = "/frontend/index.html";
 
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
-if (!postId) window.location.href = "feed.html";
+if (!postId) window.location.href = "/frontend/feed.html";
 
 let replyToId = null;
 
@@ -128,7 +128,7 @@ async function reportPost() {
 
 function logout() {
     removeToken();
-    window.location.href = "index.html";
+    window.location.href = "/frontend/index.html";
 }
 
 loadPost();

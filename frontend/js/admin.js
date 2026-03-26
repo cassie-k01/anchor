@@ -1,9 +1,9 @@
-if (!isLoggedIn()) window.location.href = "index.html";
+if (!isLoggedIn()) window.location.href = "/frontend/index.html";
 
 // Check user is moderator or admin
 const user = getUser();
 if (user && user.role !== "moderator" && user.role !== "admin") {
-    window.location.href = "feed.html";
+    window.location.href = "/frontend/feed.html";
 }
 
 let currentFilter = "pending";
@@ -141,7 +141,7 @@ function showMessage(text, type) {
 
 function logout() {
     removeToken();
-    window.location.href = "index.html";
+    window.location.href = "/frontend/index.html";
 }
 
 // Load everything on page start

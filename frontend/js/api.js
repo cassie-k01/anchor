@@ -51,7 +51,7 @@ async function apiCall(endpoint, method = "GET", body = null) {
     // If token expired redirect to login
     if (response.status === 401) {
         removeToken();
-        window.location.href = "index.html";
+        window.location.href = "/frontend/index.html";
     }
 
     return { ok: response.ok, data };
