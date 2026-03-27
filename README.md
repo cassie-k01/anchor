@@ -10,7 +10,7 @@ ANCHOR is a web-based platform that allows African Leadership University student
 ## Tech Stack
 
 - **Backend:** Python / Flask
-- **Database:** SQLite
+- **Database:** SQLite (local development) / PostgreSQL (production on Render)
 - **Frontend:** HTML, CSS, JavaScript
 - **Authentication:** JWT (JSON Web Tokens)
 - **Password Security:** Bcrypt

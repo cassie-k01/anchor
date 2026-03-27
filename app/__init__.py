@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from datetime import timedelta
+import os
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -12,7 +13,12 @@ jwt = JWTManager()
 def create_app():
     app = Flask(__name__)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///anchor.db"
+    # Fix Render's postgres:// to postgresql:// for SQLAlchemy
+    database_url = os.environ.get("DATABASE_URL", "sqlite:///anchor.db")
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SECRET_KEY"] = "anchor-dev-secret"
     app.config["JWT_SECRET_KEY"] = "anchor-jwt-secret"
@@ -28,7 +34,7 @@ def create_app():
     from app.models.comment import Comment
     from app.models.report import Report
     from app.models.resource import Resource
-    
+
     with app.app_context():
         db.create_all()
 
@@ -44,6 +50,6 @@ def create_app():
     app.register_blueprint(comments_bp,  url_prefix="/api")
     app.register_blueprint(reports_bp,   url_prefix="/api/reports")
     app.register_blueprint(admin_bp,     url_prefix="/api/admin")
-    app.register_blueprint(resources_bp,   url_prefix="/api/resources")
+    app.register_blueprint(resources_bp, url_prefix="/api/resources")
 
     return app
