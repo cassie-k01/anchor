@@ -1,9 +1,9 @@
-# ANCHOR
+# ⚓ ANCHOR
 ### Anonymous Peer Support Platform for ALU Students
 
 ANCHOR is a web-based platform that allows African Leadership University students to anonymously share experiences, seek advice, and support each other. It addresses the stigma around mental health and academic struggles by providing a safe, peer-driven space.
 
-> 🌐 **Live:** https://anchor-qgu7.onrender.com
+> 🌐 **Live:** https://anchor-qgu7.onrender.com/
 
 ---
 
@@ -71,6 +71,8 @@ python run.py
 
 The server will start at **http://localhost:5000**
 
+> 💡 Locally the app uses SQLite by default. No database setup required.
+
 ### 5. Open the app
 Go to your browser and open:
 ```
@@ -85,35 +87,35 @@ The app is deployed on Render as a Web Service.
 
 - **Start command:** `gunicorn run:app`
 - **Environment:** Python 3
-- **Note:** SQLite resets on every redeploy on Render's free tier. 
+- **Database:** PostgreSQL (persistent, hosted on Render)
+- **Environment variable required:** `DATABASE_URL` (set in Render environment settings)
 
+---
 
 ## Using the App
 
 ### As a Student
-- Register with your ALU email (`@alustudent.com` or `@alustaff.com`)
+- Register with your ALU email (`@alustudent.com`)
 - Browse the anonymous feed
 - Create posts anonymously or with your name
 - Comment and reply to other posts
 - Report harmful content
-- Browse resources shared by senior students
+- Browse resources shared by moderators
 
 ### As a Moderator
-- Login with a moderator account
+- Register with your ALU staff email (`@alustaff.com`)
 - Access the admin dashboard
 - Review, resolve and act on reported content
 - Remove harmful posts or comments
 - Suspend users who violate community guidelines
 
-## User Roles
-- Register with `@alustudent.com` → Student account
-- Register with `@alustaff.com` → Moderator account (access to admin dashboard)
+---
 
 ## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | /api/auth/register | Register a new student |
+| POST | /api/auth/register | Register a new user |
 | POST | /api/auth/login | Login and get JWT token |
 | GET  | /api/auth/me | Get current user info |
 | GET  | /api/posts | Get all posts |
@@ -124,18 +126,20 @@ The app is deployed on Render as a Web Service.
 | POST | /api/reports | Submit a report |
 | GET  | /api/admin/reports | View reports (moderator only) |
 | GET  | /api/resources | Get all resources |
-| POST | /api/resources | Add a resource (mentor/admin only) |
+| POST | /api/resources | Add a resource (moderator only) |
 
 ---
 
 ## User Roles
 
+Roles are automatically assigned based on email at registration:
+- `@alustudent.com` → Student
+- `@alustaff.com` → Moderator
+
 | Role | Permissions |
 |------|-------------|
 | Student | Post, comment, report content |
-| Mentor | Everything above + add resources |
-| Moderator | Everything above + manage reports, remove content, suspend users |
-| Admin | Full access |
+| Moderator | Everything above + manage reports, add resources, remove content, suspend users |
 
 ---
 
